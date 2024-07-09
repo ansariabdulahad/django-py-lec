@@ -18,8 +18,72 @@
 </head>
 
 <body>
-    {% block main %}
-    {% endblock %}
+
+    <nav class="navbar shadow-sm navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="../../static/images/logo.png" alt="logo" width="40">
+                Just for Code
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        {% block main %}
+        {% endblock %}
+    </div>
+
+    <footer class="bg-dark text-white">
+        <div class="container py-4">
+            <div class="row py-4">
+                <div class="col-md-3">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum labore ratione similique quos
+                        necessitatibus molestias esse ut eum quo architecto aperiam, nesciunt inventore voluptatem autem
+                        id quia numquam dolore nihil!
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum labore ratione similique quos
+                        necessitatibus molestias esse ut eum quo architecto aperiam, nesciunt inventore voluptatem autem
+                        id quia numquam dolore nihil!
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum labore ratione similique quos
+                        necessitatibus molestias esse ut eum quo architecto aperiam, nesciunt inventore voluptatem autem
+                        id quia numquam dolore nihil!
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum labore ratione similique quos
+                        necessitatibus molestias esse ut eum quo architecto aperiam, nesciunt inventore voluptatem autem
+                        id quia numquam dolore nihil!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     {% block js%}
     {% endblock %}
