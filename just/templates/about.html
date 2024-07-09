@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'layout.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Page</title>
-</head>
+{% block css %}
+<link rel="stylesheet" href="../../static/css/about.css">
+{% endblock %}
 
-<body>
-    <h1 style="color: blue;">Welcome to About Page</h1>
+{% block title%}
+AboutPage
+{% endblock %}
 
-    {% for menu in menus %}
-    <h1>{{menu | upper}}</h1>
-    {% endfor %}
-</body>
-
-</html>
+{% block main%}
+<h1>Welcome to About Page !!!</h1>
+{% endblock %}

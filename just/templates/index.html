@@ -1,19 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'layout.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
-</head>
+{% block js %}
+<script src="../../static/js/index.js"></script>
+{% endblock %}
 
-<body>
-    <h1 style="color: slateblue;">Welcome to Homepage</h1>
-    {% if name == 'Ahad' %}
-    <h1 style="color: slateblue;">Welcome {{name}}</h1>
-    {% else %}
-    <h1 style="color: red;">You are not {{name}}</h1>
-    {% endif %}
-</body>
+{% block css %}
+<link rel="stylesheet" href="../../static/css/index.css">
+{% endblock %}
 
-</html>
+{% block title%}
+HomePage
+{% endblock %}
+
+{% block main %}
+<h1 class="fw-bolder fs-1 text-danger">Welcome to Home Page !!!</h1>
+<button class="btn btn-secondary">Click Me</button>
+{% endblock %}
