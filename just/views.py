@@ -24,6 +24,9 @@ def Contact(request) :
         email = request.POST.get('email')
         message = request.POST.get('message')
 
-        res = SendMail('Testing...', message, ['ansariabdulahad3@gmail.com'])
-        print(res)
+        res = SendMail(fullname, email, 'New Contact Form Submission', message, ['ansariabdulahad3@gmail.com'])
+        if res['success'] :
+            return render(request, 'success.html')
+        else :
+            return render(request, 'failed.html')
     return render(request, 'contact.html')
