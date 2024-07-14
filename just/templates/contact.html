@@ -11,8 +11,8 @@ Contact Page
 {% block main %}
 
 <!-- Contact Form -->
-<div class="d-flex justify-content-center">
-    <div class="card shadow w-50">
+<div class="d-flex flex-column align-items-center justify-content-center">
+    <div class="card shadow w-50 mb-5">
         <div class="card-body">
             <h5>Contact Form</h5>
             <form method="post" action="/contact">
@@ -33,6 +33,34 @@ Contact Page
             </form>
         </div>
     </div>
+
+    {% if data|length > 0 %}
+    <table class="table table-striped shadow text-nowrap text-center">
+        <thead>
+            <th>ID</th>
+            <th>Fullname</th>
+            <th>Email</th>
+            <th>Message</th>
+            <th>CreatedAt</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            {% for item in data %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.fullname }}</td>
+                <td>{{ item.email }}</td>
+                <td>{{ item.message }}</td>
+                <td>{{ item.createdAt }}</td>
+                <td>
+                    <button class="btn btn-primary shadow">EDIT</button>
+                    <button class="btn btn-danger shadow">DELETE</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
 </div>
 
 {% endblock %}

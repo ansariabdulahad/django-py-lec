@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from util.service import SendMail
+# STEP 4 : save data to database
+from .models import ContactData
 
 
 def Home(request) :
@@ -26,7 +28,14 @@ def Contact(request) :
 
         res = SendMail(fullname, email, 'New Contact Form Submission', message, ['ansariabdulahad3@gmail.com'])
         if res['success'] :
-            return render(request, 'success.html')
+            contact = ContactData(
+                fullname = fullname,
+                email = email,
+                message = message
+            )
+            contact.save()
+            return redirect('/contact')
         else :
             return render(request, 'failed.html')
-    return render(request, 'contact.html')
+    data = ContactData.objects.all().values()
+    return render(request, 'contact.html', {'data' : data})
