@@ -9,8 +9,10 @@ class ContactDataAdmin(admin.ModelAdmin) :
     list_display = (
         'id',
         'fullname',
+        'mobile',
         'email',
         'message',
+        'profile',
         'createdAt'
     )
 

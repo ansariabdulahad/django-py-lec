@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -135,3 +136,6 @@ EMAIL_HOST_USER = 'ansariabdulahad3@gmail.com'
 EMAIL_HOST_PASSWORD = 'goqqvxlgxhijayxj'
 EMAIL_USE_TLS = True
 DEFAULT_FROM = EMAIL_HOST_USER
+
+MEDIA_ROOT = os.path.join(BASE_DIR,'upload')
+MEDIA_URL = '/upload/'

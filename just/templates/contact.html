@@ -4,6 +4,10 @@
 <link rel="stylesheet" href="../../static/css/contact.css">
 {% endblock %}
 
+{% block js %}
+<script src="../../static/js/contact.js"></script>
+{% endblock %}
+
 {% block title%}
 Contact Page
 {% endblock %}
@@ -15,11 +19,15 @@ Contact Page
     <div class="card shadow w-50 mb-5">
         <div class="card-body">
             <h5>Contact Form</h5>
-            <form method="post" action="/contact">
+            <form method="post" action="/contact" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="form-group mb-3">
                     <label for="fullname">Fullname</label>
                     <input type="text" name="fullname" class="form-control" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="mobile">Mobile</label>
+                    <input type="tel" name="mobile" class="form-control" required>
                 </div>
                 <div class="form-group mb-3">
                     <label for="email">Email</label>
@@ -28,6 +36,10 @@ Contact Page
                 <div class="form-group mb-3">
                     <label for="message">Message</label>
                     <textarea name="message" class="form-control" required></textarea>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="profile">Profile</label>
+                    <input type="file" name="profile" class="form-control" accept="image/*" required>
                 </div>
                 <button class="btn btn-success w-100">SUBMIT</button>
             </form>
@@ -38,7 +50,9 @@ Contact Page
     <table class="table table-striped shadow text-nowrap text-center">
         <thead>
             <th>ID</th>
+            <th>Profile</th>
             <th>Fullname</th>
+            <th>Mobile</th>
             <th>Email</th>
             <th>Message</th>
             <th>CreatedAt</th>
@@ -48,13 +62,21 @@ Contact Page
             {% for item in data %}
             <tr>
                 <td>{{ item.id }}</td>
+                <td>
+                    <img src="{{ settings.MEDIA_URL }}/{{ item.profile }}" width="30" class="rounded-circle" alt="img">
+                </td>
                 <td>{{ item.fullname }}</td>
+                <td>{{ item.mobile }}</td>
                 <td>{{ item.email }}</td>
                 <td>{{ item.message }}</td>
                 <td>{{ item.createdAt }}</td>
                 <td>
-                    <button class="btn btn-primary shadow">EDIT</button>
-                    <button class="btn btn-danger shadow">DELETE</button>
+                    <button class="btn btn-primary shadow" onclick="editEnquery('{{ item.id }}')">
+                        EDIT
+                    </button>
+                    <button class="btn btn-danger shadow" onclick="deleteEnquery('{{ item.id }}')">
+                        DELETE
+                    </button>
                 </td>
             </tr>
             {% endfor %}
